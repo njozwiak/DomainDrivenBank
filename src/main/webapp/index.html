@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+
+    <div id="main"/>
+
+    <script src="scripts/jquery-1.7.1.min.js"/>
+    <script>
+        <!--
+
+        // -->
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type:"GET",
+                url:"http://localhost:8080/DomainDrivenBank-1.0/rest/clients",
+                processData:true,
+                dataType:"json",
+                success:function (data) {
+                    $.each(data.Client, function (i, item) {
+                        $('#main').append('<li>' + item.idClient + '-' + item.name + '</li>');
+                    });
+
+                },
+                error:function (jqXHR, textStatus, errorThrow) {
+                    alert("Error in returned JSON");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
