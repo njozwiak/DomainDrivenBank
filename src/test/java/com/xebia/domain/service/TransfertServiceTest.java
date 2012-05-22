@@ -1,5 +1,6 @@
 package com.xebia.domain.service;
 
+import static org.fest.assertions.Assertions.assertThat;
 import com.xebia.domain.ValueObject.Operation;
 import com.xebia.domain.entity.BankAccount;
 import com.xebia.domain.entity.Client;
@@ -32,7 +33,7 @@ public class TransfertServiceTest {
         TransfertService service = new TransfertService();
         service.debitCreditAccount(debitAccount, creditAccount, 250.2);
 
-        Assertions.assertThat(debitAccount.getLastSolde()).isEqualTo(1350.9, Delta.delta(0.1));
-        Assertions.assertThat(creditAccount.getLastSolde()).isEqualTo(400.8, Delta.delta(0.1));
+        assertThat(debitAccount.getLastSolde()).isEqualTo(1350.9, Delta.delta(0.1));
+        assertThat(creditAccount.getLastSolde()).isEqualTo(400.8, Delta.delta(0.1));
     }
 }

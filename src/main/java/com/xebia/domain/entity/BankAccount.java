@@ -6,14 +6,14 @@ import java.util.List;
 
 public class BankAccount {
 
-    private Integer accountNumber;
+    private Integer accountId;
     private Client client;
     private List<Operation> operations;
     private Double solde;
     private Double authorizedOverdraft;
 
     public BankAccount(Integer accountNumber, Client client, List<Operation> operations, Double solde, Double authorizedOverdraft) {
-        this.accountNumber = accountNumber;
+        this.accountId = accountNumber;
         this.client = client;
         this.operations = operations;
         this.solde = solde;
