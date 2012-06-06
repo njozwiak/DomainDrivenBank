@@ -5,33 +5,55 @@
 </head>
 <body>
 
-    <div id="main"/>
+<table border="1">
+    <caption>Domain Driven Bank</caption>
+    <thead>
+    <tr>
+    <th>Clients
+    <th>BankAccount
+        <tbody>
+        <tr>
+        <td width="20%"><div id="client"/>
+        <td width="20%"><div id="bankAccount"/>
+</table>
 
-    <script src="scripts/jquery-1.7.1.min.js"/>
-    <script>
-        <!--
+<script src="scripts/jquery-1.7.1.min.js"/>
+<script>
+    <!--
 
-        // -->
-    </script>
-    <script>
-        $(document).ready(function () {
-            $.ajax({
-                type:"GET",
-                url:"http://localhost:8080/DomainDrivenBank-1.0/rest/clients",
-                processData:true,
-                dataType:"json",
-                success:function (data) {
-                    $.each(data.Client, function (i, item) {
-                        $('#main').append('<li>' + item.idClient + '-' + item.name + '</li>');
-                    });
-
-                },
-                error:function (jqXHR, textStatus, errorThrow) {
-                    alert("Error in returned JSON");
-                }
-            });
+    // -->
+</script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type:"GET",
+            url:"http://localhost:8080/domainDrivenBank/rest/clients",
+            processData:true,
+            dataType:"json",
+            success:function (data) {
+                $.each(data.Client, function (i, item) {
+                    $('#client').append(item.idClient + ' - Client Name : ' + item.name + '<br/>');
+                });
+            },
+            error:function (jqXHR, textStatus, errorThrow) {
+                alert("Error in returned client JSON");
+            }
         });
-    </script>
+        $.ajax({
+            type:"GET",
+            url:"http://localhost:8080/domainDrivenBank/rest/bankAccount/1",
+            processData:true,
+            dataType:"json",
+            success:function (data) {
+                $('#bankAccount').append('Account Number : ' + data.accountId + '<br/> - Last solde : ' + data.lastSolde + '<br/>');
+
+            },
+            error:function (jqXHR, textStatus, errorThrow) {
+                alert("Error in returned bankAccount JSON");
+            }
+        });
+    });
+</script>
 
 </body>
 

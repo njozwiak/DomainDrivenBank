@@ -7,7 +7,6 @@
          metadata-complete="true">
 
     <display-firstName>DomainDrivenBank</display-firstName>
-
     <description>DomainDrivenBank sample application</description>
 
     <servlet>
@@ -23,10 +22,6 @@
         <servlet-name>Jersey REST Service</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
-
-    <session-config>
-        <session-timeout>3600</session-timeout>
-    </session-config>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

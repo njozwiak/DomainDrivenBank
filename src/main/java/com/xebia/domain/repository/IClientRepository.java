@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.xebia.domain.entity.Client;
 
-public class IClientRepository {
+public interface IClientRepository {
 
     Client getClientById(Integer idClient);
     
